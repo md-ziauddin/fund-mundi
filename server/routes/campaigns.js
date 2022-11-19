@@ -1,9 +1,19 @@
-import express from 'express';
+import express from "express";
 
-import { getAllCampaign } from '../controllers/campaigns.js'
+import {
+  getAllCampaign,
+  creatCampaign,
+  getCampaign,
+  updateCampaign,
+  hideCampaign,
+} from "../controllers/campaigns.js";
 
 const router = express.Router();
 
-router.get('/', getAllCampaign)
+router.get("/:id", getCampaign);
+router.get("/", getAllCampaign);
+router.post("/", creatCampaign);
+router.patch("/:id", updateCampaign);
+router.delete("/:id", hideCampaign);
 
-export default router
+export default router;
